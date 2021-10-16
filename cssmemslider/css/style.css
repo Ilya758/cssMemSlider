@@ -293,25 +293,26 @@ a:active .dot{
     width: 25px;
     height: 25px;
     cursor: pointer;
+    opacity: 0;
 }
 
-.radio:nth-child(1) {
+.radio1 {
     margin-right: 250px;
 }
 
-.radio:nth-child(2) {
+.radio2{
     margin-right: 200px;
 }
 
-.radio:nth-child(3) {
+.radio3 {
     margin-right: 150px;
 }
 
-.radio:nth-child(4) {
+.radio4 {
     margin-right: 100px;
 }
 
-.radio:nth-child(5) {
+.radio5 {
     margin-right: 50px;
 }
 
@@ -376,11 +377,79 @@ input[name="link"] {
 
 label {
     position: relative;
-    left: -20%;
-    height: 50px;
-    width: 50px;
+    margin-right: 0;
+    height: 40px;
+    width: 40px;
+    border: 1px solid #0000003b;
+    border-radius: 50%;
+    grid-area: 2 / 2 / span 1 / span 1;
+    cursor: pointer;
+    transition: var(--trans);
+    transform: scale(0.6);
+    background-color: wheat;
 }
 
+label:hover {
+    background: #ff000059;
+    border: transparent;
+    transform: scale(0.8);
+}
+
+label:active {
+    background-color: rgb(235, 252, 138);
+    border: 1px solid #0000003b;
+    transform: scale(0.5);
+}
+
+.radio1:checked ~ .label1 {
+    background-color: #43aec3;
+    border: transparent;
+    transform: scale(1);
+}
+
+.radio2:checked ~ .label2 {
+    background-color: #43aec3;
+    border: transparent;
+    transform: scale(1);
+}
+
+.radio3:checked ~ .label3 {
+    background-color: #43aec3;
+    border: transparent;
+    transform: scale(1);
+}
+
+.radio4:checked ~ .label4 {
+    background-color: #43aec3;
+    border: transparent;
+    transform: scale(1);
+}
+
+.radio5:checked ~ .label5 {
+    background-color: #43aec3;
+    border: transparent;
+    transform: scale(1);
+}
+
+.label1 {
+    margin-right: 243px;
+}
+
+.label2 {
+    margin-right: 193px;
+}
+
+.label3 {
+    margin-right: 143px;
+}
+
+.label4 {
+    margin-right: 93px;
+}
+
+.label5 {
+    margin-right: 43px;
+}
 
 #radio1:checked .slider__text{
     color: red
