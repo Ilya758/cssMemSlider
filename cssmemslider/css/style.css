@@ -54,7 +54,7 @@ html {
 }
 
 .text {
-    font: 400 35px "Roboto";
+    font: 400 40px "Roboto";
 }
 
 .header{
@@ -91,6 +91,125 @@ html {
     background: aliceblue;
     border-radius: 50px;
     text-align: center;
+    transition: 0.5s linear;
+}
+
+.slide:nth-child(1) {
+    transform: translate(-1000px, 0);
+}
+
+.slide:nth-child(2) {
+    transform: translate(-1000px, -500px);
+}
+
+.slide:nth-child(3) {
+    transform: translate(-1000px, -1000px);
+}
+
+.slide:nth-child(4) {
+    transform: translate(-1000px, -1500px);
+}
+
+.slide:nth-child(5) {
+    transform: translate(-1000px, -2000px);
+}
+
+.radio1:checked ~ div > .slide:nth-child(1) {
+    transform: translate(0, 0);
+}
+
+@keyframes appearLeft {
+    0% {
+        transform: translate(-1000px, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes appearRight {
+    0% {
+        transform: translate(1000px, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes appearTop {
+    0% {
+        transform: translate(0, 200px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes appearBottom {
+    0% {
+        transform: translate(0, -1000px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+span:after {
+    position: relative;
+    transform: translate(0, 0);
+}
+
+.radio1:checked ~ span::after{
+    content: "All correct";
+    animation: appearLeft 0.5s;
+}
+
+.radio2:checked ~ span::after{
+    content: "It's all about pointers";
+    animation: appearRight 0.5s;
+}
+
+.radio3:checked ~ span::after{
+    content: "Just see the documentation";
+    animation: appearTop 0.5s;
+}
+
+.radio4:checked ~ span::after{
+    content: "What do u mean, huh?";
+    animation: appearBottom 0.5s;
+}
+
+.radio5:checked ~ span::after{
+    content: "JS jokes:)";
+    animation: appear 0.5s;
+}
+
+.radio2:checked ~ div > .slide:nth-child(2) {
+    transform: translate(0, -500px);
+}
+
+
+.radio3:checked ~ div > .slide:nth-child(3) {
+    transform: translate(0, -1000px);
+}
+
+
+.radio4:checked ~ div > .slide:nth-child(4) {
+    transform: translate(0, -1500px);
+}
+
+.radio5:checked ~ div > .slide:nth-child(5) {
+    transform: translate(0, -2000px);
 }
 
 img {
@@ -99,10 +218,12 @@ img {
 
 .slider__container {
     grid-column: 1 / span 2;
-    display: flex;
+    column-gap: 50px;
+    /*display: flex;*/
     max-width: 700px;
+    max-height: 500px;
     width: 100%;
-    overflow-x: auto;
+    overflow: hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
@@ -111,19 +232,18 @@ img {
 
 .slider__text {
     grid-column: 1 / span 1;
-    display: block;
+    margin: 0;
+    display: flex;
     width: 100%;
     text-align: left;
     width: max-content;
+    user-select: none;
 }
 
 .slider__text-container {
     display: flex;
-
-    position: absolute;
     column-gap: 50px;
-    left: 300px;
-    top: 700px;
+    width: 100%;
 }
 
 .slider__dot {
@@ -136,7 +256,9 @@ img {
 }
 
 .link {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
 }
@@ -145,18 +267,52 @@ img {
     display: inline-block;
     width: 20px;
     height: 20px;
+    z-index: -999;
     border-radius: 50%;
     background: #aed9ff;
     transition: var(--trans);
 }
 
-.slider__dot:hover .dot{
+a:hover .dot{
     background: var(--text-red);
 }
 
-.slider__dot:active .dot{
+a:active .dot{
     background: var(--text-orange);
     transform: scale(1.1);
+}
+
+.radio-container {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.radio {
+    grid-area: 2 / 2 / span 1 / span 1;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.radio:nth-child(1) {
+    margin-right: 250px;
+}
+
+.radio:nth-child(2) {
+    margin-right: 200px;
+}
+
+.radio:nth-child(3) {
+    margin-right: 150px;
+}
+
+.radio:nth-child(4) {
+    margin-right: 100px;
+}
+
+.radio:nth-child(5) {
+    margin-right: 50px;
 }
 
 .slider__dot-pagination {
@@ -165,11 +321,71 @@ img {
     margin-right: 0;
     column-gap: 20px;
     text-align: right;
+    position: relative;
+    right: 550px;
 }
 
 .slider__container::-webkit-scrollbar {
     display: none;
 }
+
+.checkbox__container {
+    position: relative;
+    top: 50%;
+    /*left: 50%;*/
+    transform: translate(-50%, -50%);
+    /*opacity: 0;*/
+    right: -250px;
+    width: 25px;
+    height: 25px;
+
+}
+
+/*.slider__text::after {
+    opacity: 0;
+    transition: var(--trans);
+}*/
+
+.checkbox__container:checked + label > .slider__text::after {
+    content: "Hide";
+    display: inline-block;
+    position: relative;
+    top: -50%;
+    left: -69%;
+    font: 400 40px "Roboto";
+    opacity: 1;
+}
+
+.text_state_hidden {
+    transition: var(--trans);
+}
+
+.checkbox__container:checked + label > span > .text_state_hidden {
+    opacity: 0;
+}
+
+input[name="link"] {
+    position: relative;
+    right: -30%;
+    transform: translate(-3%, -5%);
+    width: 25%;
+    height: 25%;
+    z-index: 999;
+    cursor: pointer;
+}
+
+label {
+    position: relative;
+    left: -20%;
+    height: 50px;
+    width: 50px;
+}
+
+
+#radio1:checked .slider__text{
+    color: red
+}
+
 
 .footer {
     display: block;
