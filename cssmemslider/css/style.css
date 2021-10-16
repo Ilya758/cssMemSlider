@@ -3,3 +3,86 @@
     src: url("../assets/fonts/Forum-Regular.ttf") format("truetype");
     font-weight: 400;
 }
+
+html {
+    background: #edfffe73;
+}
+
+.wrapper {
+    display: flex;
+    max-width: 1440px;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+}
+.wrapper-inner {
+    flex: 1;
+    width: 100%;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list {
+    list-style-type: none;
+}
+
+.text {
+    font: 400 35px "Roboto";
+}
+
+.header{
+    display: block;
+}
+
+.header__content {
+    margin-top: 50px;
+    width: 100%;
+}
+
+.header__heading {
+    font-size: 50px;
+    text-align: center;
+    color: #000000b8;
+    text-shadow: 0 1px 5px var(--text-red);
+}
+
+
+.footer {
+    display: block;
+    width: 100%;
+}
+
+.footer__content {
+    padding: 0 20px 20px;
+    justify-content: space-between;
+}
+
+.footer__text {
+    font-size: 50px;
+    text-decoration: none;
+}
+
+.footer__copy {
+    margin: 0;
+}
+
+.footer__author {
+    margin: 0;
+    color: var(--text-black);
+    transition: var(--trans);
+}
+
+.footer__author:hover {
+    color: var(--text-orange);
+}
