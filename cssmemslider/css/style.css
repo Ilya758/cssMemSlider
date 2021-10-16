@@ -1,3 +1,19 @@
+:root {
+    /*text-color*/
+    --text-black: #000000;
+    --text-orange: #ffc600;
+    --text-red: #ff000091;
+    --text-white: #ffffff;
+    /*transition*/
+    --trans: 0.25s linear;
+}
+
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 @font-face {
     font-family: "Roboto";
     src: url("../assets/fonts/Forum-Regular.ttf") format("truetype");
