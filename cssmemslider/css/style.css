@@ -218,7 +218,6 @@ img {
 .slider__container {
     grid-column: 1 / span 2;
     column-gap: 50px;
-    /*display: flex;*/
     max-width: 700px;
     max-height: 500px;
     width: 100%;
@@ -460,7 +459,6 @@ label > span {
     color: red
 }
 
-
 .footer {
     display: block;
     width: 100%;
@@ -512,11 +510,6 @@ label > span {
     .slider__content {
         padding: 35px 0;
     }
-
-    /*label {
-        width: 30px;
-        height: 30px;
-    }*/
 
     .slide {
         background: none;
