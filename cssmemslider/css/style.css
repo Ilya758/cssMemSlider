@@ -38,9 +38,9 @@ html {
 }
 
 .container {
-    max-width: 1920px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 1.5em;
 }
 
 .content {
@@ -74,10 +74,10 @@ html {
 }
 
 .slider__content {
-    padding: 70px 50px;
+    padding: 5em 4em;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-gap: 40px;
+    grid-gap: 2.75em;
     border-radius: 35px;
     background: #ffa50029;
     box-shadow: 0 0 30px 10px #ffa50029;
@@ -162,7 +162,6 @@ html {
         opacity: 1;
     }
 }
-
 
 span:after {
     position: relative;
@@ -333,19 +332,11 @@ a:active .dot{
 .checkbox__container {
     position: relative;
     top: 50%;
-    /*left: 50%;*/
     transform: translate(-50%, -50%);
-    /*opacity: 0;*/
     right: -250px;
     width: 25px;
     height: 25px;
-
 }
-
-/*.slider__text::after {
-    opacity: 0;
-    transition: var(--trans);
-}*/
 
 .checkbox__container:checked + label > .slider__text::after {
     content: "Hide";
@@ -358,6 +349,7 @@ a:active .dot{
 }
 
 .text_state_hidden {
+    margin: 0;
     transition: var(--trans);
 }
 
@@ -378,15 +370,15 @@ input[name="link"] {
 label {
     position: relative;
     margin-right: 0;
-    height: 40px;
-    width: 40px;
-    border: 1px solid #0000003b;
+    height: 60px;
+    width: 60px;
+
     border-radius: 50%;
     grid-area: 2 / 2 / span 1 / span 1;
     cursor: pointer;
     transition: var(--trans);
     transform: scale(0.6);
-    background-color: wheat;
+
 }
 
 label:hover {
@@ -401,31 +393,44 @@ label:active {
     transform: scale(0.5);
 }
 
-.radio1:checked ~ .label1 {
+label > span {
+    position: relative;
+    display: block;
+    height: 60px;
+    width: 60px;
+    border: 1px solid #0000003b;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--trans);
+    transform: scale(0.6);
+    background-color: rgb(255, 255, 255);
+}
+
+.radio1:checked ~ .label1 > span {
     background-color: #43aec3;
     border: transparent;
     transform: scale(1);
 }
 
-.radio2:checked ~ .label2 {
+.radio2:checked ~ .label2 > span {
     background-color: #43aec3;
     border: transparent;
     transform: scale(1);
 }
 
-.radio3:checked ~ .label3 {
+.radio3:checked ~ .label3 > span {
     background-color: #43aec3;
     border: transparent;
     transform: scale(1);
 }
 
-.radio4:checked ~ .label4 {
+.radio4:checked ~ .label4 > span {
     background-color: #43aec3;
     border: transparent;
     transform: scale(1);
 }
 
-.radio5:checked ~ .label5 {
+.radio5:checked ~ .label5 > span {
     background-color: #43aec3;
     border: transparent;
     transform: scale(1);
@@ -483,4 +488,186 @@ label:active {
 
 .footer__author:hover {
     color: var(--text-orange);
+}
+
+@media (max-width: 1023px) {
+    .header__heading {
+        font-size: 40px;
+    }
+
+    .slider__content {
+        padding: 5em 0;
+    }
+
+    span::after {
+        font-size: 32px;
+    }
+
+    .footer__text {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    .slider__content {
+        padding: 35px 0;
+    }
+
+    /*label {
+        width: 30px;
+        height: 30px;
+    }*/
+
+    .slide {
+        background: none;
+    }
+
+    img {
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .footer__text {
+        font-size: 26px;
+    }
+
+    .slider__content {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+    }
+
+    .slider__container {
+        max-height: 360px;
+    }
+
+    .slide {
+        height: auto;
+    }
+
+    .slider__text {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .radio, label {
+        grid-area: 3 / 1;
+    }
+
+    .slider__content {
+        padding: 10px 0;
+    }
+
+    .label1 {
+        margin: 0 0 0 5%;
+    }
+
+    .label2 {
+        margin: 0 0 0 25%;
+    }
+
+    .label3 {
+        margin-right: 46%;
+    }
+
+    .label4 {
+        margin-right: 24%;
+    }
+
+    .label5 {
+        margin-right: 5%;
+    }
+}
+
+@media (max-width: 568px) {
+    .slider__container {
+        max-height: 360px;
+    }
+
+    .slide:nth-child(2) {
+        transform: translate(-1000px, -330px);
+    }
+
+    .slide:nth-child(3) {
+        transform: translate(-1000px, -680px);
+    }
+
+    .slide:nth-child(4) {
+        transform: translate(-1000px, -1015px);
+    }
+
+    .slide:nth-child(5) {
+        transform: translate(-1000px, -1370px);
+    }
+
+    .radio2:checked ~ div > .slide:nth-child(2) {
+        transform: translate(0, -330px);
+    }
+
+    .radio3:checked ~ div > .slide:nth-child(3) {
+        transform: translate(0, -680px);
+    }
+
+    .radio4:checked ~ div > .slide:nth-child(4) {
+        transform: translate(0, -1015px);
+    }
+
+    .radio5:checked ~ div > .slide:nth-child(5) {
+        transform: translate(0, -1370px);
+    }
+
+    span::after {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider__container {
+        max-height: 200px;
+    }
+
+    .label3 {
+        margin-right: calc(46% / 1.2 + 4vw);
+    }
+
+    .slide:nth-child(2) {
+        transform: translate(-1000px, -165px);
+    }
+
+    .slide:nth-child(3) {
+        transform: translate(-1000px, -350px);
+    }
+
+    .slide:nth-child(4) {
+        transform: translate(-1000px, -530px);
+    }
+
+    .slide:nth-child(5) {
+        transform: translate(-1000px, -700px);
+    }
+
+    .radio2:checked ~ div > .slide:nth-child(2) {
+        transform: translate(0, -165px);
+    }
+
+    .radio3:checked ~ div > .slide:nth-child(3) {
+        transform: translate(0, -350px);
+    }
+
+    .radio4:checked ~ div > .slide:nth-child(4) {
+        transform: translate(0, -530px);
+    }
+
+    .radio5:checked ~ div > .slide:nth-child(5) {
+        transform: translate(0, -700px);
+    }
+
+    span::after {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 380px) {
+    .label3 {
+        margin-right: calc(46% / 1.2 + 1.1vw);
+    }
 }
