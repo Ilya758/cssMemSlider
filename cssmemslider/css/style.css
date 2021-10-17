@@ -235,7 +235,6 @@ img {
     width: 100%;
     text-align: left;
     width: max-content;
-    user-select: none;
 }
 
 .slider__text-container {
@@ -620,6 +619,10 @@ label > span {
 
     .label3 {
         margin-right: calc(46% / 1.2 + 4vw);
+    }
+
+    .slide:nth-child(2) {
+        transform: translate(-1000px, -165px);
     }
 
     .slide:nth-child(2) {
